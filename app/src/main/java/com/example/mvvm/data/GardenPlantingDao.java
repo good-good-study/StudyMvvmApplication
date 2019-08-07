@@ -15,6 +15,12 @@ public interface GardenPlantingDao {
     @Query("SELECT * FROM garden_plantings")
     LiveData<List<GardenPlanting>> getGardenPlantings();
 
+    @Query("SELECT * FROM garden_plantings WHERE id = :gardenPlantingId")
+    LiveData<GardenPlanting> getGardenPlanting(long gardenPlantingId);
+
+    @Query("SELECT * FROM garden_plantings WHERE plant_id = :plantId")
+    LiveData<GardenPlanting> getGardednPlantingForPlant(String plantId);
+
     @Transaction
     @Query("SELECT * FROM plants")
     LiveData<List<PlantAndGardenPlantings>> getPlantAndGardenPlantings();

@@ -30,7 +30,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
     public synchronized static AppDatabase getInstance(Context context) {
-        return instance == null ? buildDatabase(context) : instance;
+        return instance == null ? instance = buildDatabase(context) : instance;
     }
 
     private static AppDatabase buildDatabase(final Context context) {
